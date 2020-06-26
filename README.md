@@ -9,7 +9,7 @@ this guide can likely be used for any k8s cluster
 
 ## Building the CSB Container
  
- As of writing this, there is not a published CSB container image so we will go through the process of making one.
+ As of writing this, there is not a published CSB container image so we will go through the process of making one. if you choose to skip this I have one prebuilt on dockerhub that will be used by default `warroyo90/csb:0.1.0.rc18`
 
 1. clone the CSB repo and checkout the latest released tag, as of the time of writing this the below is the latest tag for AWS. 
 
@@ -39,6 +39,8 @@ make build-brokerpak-azure
 docker build -t <your-registry>/csb:0.1.0.rc18 .
 docker push <your-registry>/csb:0.1.0.rc18
 ```
+
+5. update `manifests/kustomization.yml` to use your image instead of  mine.
 
 ## install the k8s service catalog
 
