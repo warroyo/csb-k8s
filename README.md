@@ -25,7 +25,7 @@ cd cloud-service-broker
 make build
 ```
 
-1. build the cloud broker-paks. 
+3. build the cloud broker-paks. 
 
 ```bash
 make build-brokerpak-aws
@@ -69,6 +69,7 @@ Required environment variables
 ```bash
 ./build-config.sh aws
 ```
+
 ### For Azure:
 Required environment variables
 | Variable | Value |
@@ -81,6 +82,7 @@ Required environment variables
 ```bash
 ./build-config.sh azure
 ```
+
 ### For GCP:
 Required environment variables
 | Variable | Value |
@@ -90,8 +92,9 @@ Required environment variables
 
 
 ```bash
-scripts/build-config.sh <cloud>
+scripts/build-config.sh gcp
 ```
+
 
 3. deploy the CSB along with the `ClusterServiceBroker` to wire it into the service catalog
 
