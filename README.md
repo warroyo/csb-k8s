@@ -95,6 +95,12 @@ Required environment variables
 scripts/build-config.sh gcp
 ```
 
+validate config was updated
+
+```bash
+cat manifests/config-files/broker-config.yaml
+```
+
 
 3. deploy the CSB along with the `ClusterServiceBroker` to wire it into the service catalog
 

@@ -17,6 +17,6 @@ configMapGenerator:
   files:
   - ./config-files/broker-config.yaml
 resources:
-- mysql-deployment.yaml
-- csb-deployment.yaml
+- mysql-deployment.yml
+- csb-deployment.yml
 - clusterbroker.yml
