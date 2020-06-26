@@ -20,3 +20,7 @@ resources:
 - mysql-deployment.yml
 - csb-deployment.yml
 - clusterbroker.yml
+images:
+- name: csb
+  newName: <your-registry>
+  newTag: test
