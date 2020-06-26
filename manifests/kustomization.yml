@@ -21,6 +21,6 @@ resources:
 - csb-deployment.yml
 - clusterbroker.yml
 images:
-- name: csb
+- name: csb-placeholder
   newName: warroyo90/csb
   newTag: 0.1.0.rc18

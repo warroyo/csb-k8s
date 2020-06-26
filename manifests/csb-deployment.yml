@@ -32,7 +32,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: <your-regsitry>/csb:0.1.0.rc18
+      - image: csb-placeholder
         name: csb
         imagePullPolicy: IfNotPresent
         args: ["serve", "--config", "/config/broker-config.yaml"]
