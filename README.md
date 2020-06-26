@@ -1,11 +1,11 @@
 # Cloud Service Broker on k8s
 
-this repo walks through installing the CSB on a k8s cluster in a VMC environment. this will not cover the details of setting up TKG from scratch on VMC for that you can go here. This will cover installing the CSB for AWS and using the k8s service catalog to interact with it.
-
-this guide can likely be used for any k8s cluster
+This repo walks through installing the [CSB](https://github.com/pivotal/cloud-service-broker) on a k8s cluster along with wiring it into the [service catalog](https://svc-cat.io/). I chose AWS to use but this could be modified slightly for any cloud supported.
 
 ## pre-reqs
 
+* k8s cluster
+* access to a public cloud and IAM creds
 
 ## Building the CSB Container
  
@@ -109,6 +109,54 @@ cat manifests/config-files/broker-config.yaml
 ```bash
 kubectl apply -k ./manifests
 ```
+check the pods are running
+
+```bash
+kubectl get pods
+```
+
+## using the broker
+
+1. install the [svcat cli](https://svc-cat.io/docs/cli/)
+
+2. show services in the marketplace, you should get a list of different services and plans
+
+```bash
+svcat marketplace
+```
+
+3. provision a small db in aws
+
+```bash
+svcat provision test-db --class csb-aws-mysql --plan small --params-json '{"publicly_accessible": true}'
+```
+
+check it's status
+
+```bash
+svcat get instances
+```
+
+4. create a binding, this will provision a k8s secret you can bind to an app
+
+```bash
+svcat bind test-db
+```
+
+check its status
+
+```bash
+svcat get bindings
+```
+
+check out the secret it created
+
+```bash
+kubectl describe secrets test-vmc
+```
+
+5. you can now bind this secret into an app as you would any k8s secret.
+
 
 
 
